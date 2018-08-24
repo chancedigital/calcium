@@ -1,0 +1,94 @@
+.cd-logo {
+	$self: &;
+	overflow: hidden;
+	text-indent: 100%;
+	white-space: nowrap;
+	display: inline-block;
+	background: url( "#{ $images-path }/logos/logo-long-box-color.svg" ) no-repeat center center;
+	background-size: contain;
+	width: 284px;
+	height: 48px;
+	margin: $margin-vertical-sm $gutter-width;
+	vertical-align: top;
+	opacity: 1.0;
+
+	&--no-margin {
+		margin: 0;
+	}
+
+	&--black {
+		background-image: url( "#{ $images-path }/logos/logo-long-box-black.svg" );
+	}
+
+	&--white {
+		background-image: url( "#{ $images-path }/logos/logo-long-box-white.svg" );
+	}
+
+	&--alt {
+
+		background-image: url( "#{ $images-path }/logos/logo-short-color.svg" );
+		width: 107px;
+		height: 60px;
+
+		&#{$self}--black {
+			background-image: url( "#{ $images-path }/logos/logo-short-black.svg" );
+		}
+
+		&#{$self}--white {
+			background-image: url( "#{ $images-path }/logos/logo-short-white.svg" );
+		}
+	
+	}
+
+	&--small {
+
+		background-image: url( "#{ $images-path }/logos/logo-mark-color.svg" );
+		width: 52px;
+		height: 30px;
+
+		&#{$self}--black {
+			background-image: url( "#{ $images-path }/logos/logo-mark-black.svg" );
+		}
+
+		&#{$self}--white {
+			background-image: url( "#{ $images-path }/logos/logo-mark-white.svg" );
+		}
+
+		&#{$self}--alt {
+			background-image: url( "#{ $images-path }/logos/logo-short-color.svg" );
+			width: 80px;
+			height: 14.5px;
+
+			&#{$self}--black {
+				background-image: url( "#{ $images-path }/logos/logo-short-black.svg" );
+			}
+
+			&#{$self}--white {
+				background-image: url( "#{ $images-path }/logos/logo-short-white.svg" );
+			}
+		}
+	}
+
+	&--tiny {
+
+		background-image: url( "#{ $images-path }/logos/logo-mark-black.svg" );
+		width: $base-font-size;
+		height: $base-font-size;
+		margin-top: ( $base-line-height - 1rem ) / 2;
+		margin-bottom: ( $base-line-height - 1rem ) / 2;
+
+		&#{$self}--color {
+			background-image: url( "#{ $images-path }/logos/logo-mark-color.svg" );
+		}
+
+		&#{$self}--white {
+			background-image: url( "#{ $images-path }/logos/logo-mark-white.svg" );
+		}
+	}
+	
+}
+
+.bracket-wrap {
+	
+	@include bracket-wrap;
+}

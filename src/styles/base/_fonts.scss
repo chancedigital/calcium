@@ -1,0 +1,60 @@
+@function get-font-formats( $font-dir: "ibm-plex", $filename: "IBMPlexMono-Regular" ) {
+	$fonts-path: "../fonts" !default;
+	$formats: (
+		eot: "eot",
+		woff2: "woff2",
+		woff: "woff",
+		opentype: "otf",
+		truetype: "ttf",
+	);
+	$src: "";
+	@each $format, $ext in $formats {
+		$sub-dir: $ext;
+		$ext: if( $format == "eot", $ext + "?", $ext );
+		$src: $src + "url( '#{$fonts-path}/#{$font-dir}/#{$sub-dir}/#{$filename}.#{$ext}' ) format( '#{$format}' )";
+		$src: $src + if( nth( map-keys( $formats ), length( $formats ) ) != $format, ",", ";" );
+	}
+	@return unquote( $src );
+}
+
+@mixin build-font-family( $family, $dir, $styles ) {
+	@each $style, $style-map in $styles {
+		@each $weight, $font-name in $style-map {
+			@font-face {
+				font-family: $family;
+				font-style: $style;
+				font-weight: $weight;
+				src: get-font-formats( $dir, $font-name );
+			}
+		}
+	}
+}
+
+$ibm-plex-mono: (
+	normal: (
+		200: "IBMPlexMono-Light",
+		400: "IBMPlexMono-Regular",
+		600: "IBMPlexMono-SemiBold",
+	),
+	italic: (
+		200: "IBMPlexMono-LightItalic",
+		400: "IBMPlexMono-Italic",
+		600: "IBMPlexMono-SemiBoldItalic",
+	),
+);
+
+$ibm-plex-sans: (
+	normal: (
+		200: "IBMPlexSans-Light",
+		400: "IBMPlexSans-Regular",
+		600: "IBMPlexSans-SemiBold",
+	),
+	italic: (
+		200: "IBMPlexSans-LightItalic",
+		400: "IBMPlexSans-Italic",
+		600: "IBMPlexSans-SemiBoldItalic",
+	),
+);
+
+@include build-font-family( "ibm-plex-mono", "ibm-plex-mono", $ibm-plex-mono );
+@include build-font-family( "ibm-plex-sans", "ibm-plex-sans", $ibm-plex-sans );

@@ -1,0 +1,38 @@
+// Brand Colors.
+$cd-green:       #66c62e;
+$cd-red:         #ff5e43;
+$cd-gold:        #ffbc14;
+$cd-blue:        #1ea4e0;
+$cd-dark-gray:   #545654;
+$cd-medium-gray: #999c99;
+$cd-light-gray:  #c0c4c0;
+$cd-xlight-gray: #eef2ee;
+$white:          #fff;
+$black:          #202120;
+
+// Alternate versions of main colors. Used for borders, backgrounds etc.
+$cd-green-light: saturate( lighten( $cd-green, 10% ), 5 );
+$cd-green-dark:  desaturate( darken( $cd-green, 6% ), 8 );
+
+// Deprecated.
+$cd-green-accessible: $cd-green !default;
+
+/*
+ * CSS Variables
+ * To be used in projects that do not use SASS, for example.
+ */
+
+:root {
+	--cd-green:       $cd-green;
+	--cd-red:         $cd-red;
+	--cd-gold:        $cd-gold;
+	--cd-blue:        $cd-blue;
+	--cd-dark-gray:   $cd-dark-gray;
+	--cd-medium-gray: $cd-medium-gray;
+	--cd-light-gray:  $cd-light-gray;
+	--cd-light-xgray: $cd-xlight-gray;
+	--cd-green-light: $cd-green-light;
+	--cd-green-dark:  $cd-green-dark;
+	--white:          $white;
+	--black:          $black;
+}

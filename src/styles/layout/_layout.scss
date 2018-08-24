@@ -1,0 +1,25 @@
+.container {
+
+	max-width: rem( 960 );
+	margin: auto;
+
+	@include breakpoint( medium down ) {
+		max-width: calc( 100% - #{ $gutter-width * 4 } );
+	}
+
+	@include breakpoint( small only ) {
+		max-width: calc( 100% - #{ $gutter-width * 2 } );
+	}
+}
+
+.site {
+
+	&__main,
+	&__aside {
+		margin: rem( 32 ) 0;
+
+		@include breakpoint( medium ) {
+			margin: rem( 64 ) 0;
+		}
+	}
+}

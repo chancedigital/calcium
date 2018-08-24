@@ -1,0 +1,95 @@
+/*
+ * Base Settings
+ */
+@import "util/rem";
+
+$margin-vertical-sm:  rem( 24 ) !default;
+$margin-vertical-lg:  rem( 64 ) !default;
+
+$base-line-height:    1.75 !default; // 28px
+$base-line-height-sm: 1.6 !default; // 24px
+$heading-line-height: 1.1 !default;
+$base-font-size:      16px !default;
+
+$gutter-width: 16px !default;
+
+// $font-family-body:    "semplicitapro", sans-serif !default;
+// $font-family-heading: "semplicitapro", sans-serif !default;
+// $font-family-accent:  "din-condensed", sans-serif !default;
+$font-family-body:    "ibm-plex-sans", helvetica, arial, sans-serif !default;
+$font-family-heading: "ibm-plex-mono", "Consolas", "Monaco", "Andale Mono", "Ubuntu Mono", monospace !default;
+$font-family-code:    "ibm-plex-mono", "Consolas", "Monaco", "Andale Mono", "Ubuntu Mono", monospace !default;
+$font-family-accent:  "ibm-plex-mono", "Consolas", "Monaco", "Andale Mono", "Ubuntu Mono", monospace !default;
+
+// Image Path.
+$images-path: "../images" !default;
+
+// Font Path.
+$fonts-path: "../fonts" !default;
+
+// Media query breakpoints.
+$breakpoints: (
+	small: 0,
+	medium: 640px,
+	large: 1024px,
+	xlarge: 1200px,
+	xxlarge: 1440px,
+) !default;
+
+/*
+ * Color Mapping
+ */
+
+$color-primary: $cd-green !default;
+$color-accent:  $cd-red !default;
+$color-white:   $white !default;
+$color-black:   $black !default;
+
+// Alternate versions of main colors. Used for borders, backgrounds etc.
+$color-primary-light: saturate( lighten( $color-primary, 10% ), 5 ) !default;
+$color-primary-dark:  desaturate( darken( $color-primary, 6% ), 8 ) !default;
+
+$gradient-primary:
+radial-gradient( circle at 100% 100%, rgba( darken( $color-primary, 10% ), 0.25 ) 0%, rgba( darken( $color-primary, 10% ), 0 ) 100% ),
+radial-gradient( circle at 0% 50%, rgba( $color-primary-light, 0.75 ) 0%, rgba( $color-primary-light, 0 ) 50% );
+
+/*
+ * Base Color Mapping
+ */
+
+$color-text-default: $black !default;
+$color-text-dark:    $black !default;
+$color-text-heading: $black !default;
+$color-text-pre:     $cd-dark-gray !default;
+
+$color-link:         $cd-green !default;
+$color-link-hover:   $cd-green-light !default;
+$color-link-visited: darken( $cd-green, 3% ) !default;
+
+$color-background-pre: $cd-xlight-gray !default;
+
+/*
+ * Component Color Mapping
+ */
+
+// Footer
+$color-footer-text: $white !default;
+
+// Forms
+$color-input-text: $black !default;
+
+// Nav accordion
+$color-nav-toggle-background:                  $cd-green !default;
+$color-nav-accordion-primary-focus-background: $cd-green-dark !default;
+$color-nav-accordion-primary-text:             $color-white !default;
+$color-nav-accordion-gray-focus-background:   $cd-light-gray !default;
+$color-nav-accordion-gray-text:               $cd-dark-gray !default;
+
+// Labels.
+$label-background:       $white !default;
+$label-background-hover: $cd-xlight-gray !default;
+
+// Borders
+$border-color:         $cd-green !default;
+$border-color-primary: $cd-green !default;
+$border-color-light:   desaturate( darken( $cd-light-gray, 15% ), 20 ) !default;

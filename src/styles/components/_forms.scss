@@ -1,0 +1,140 @@
+@function select-arrow( $color: #272727 ) {
+	$rgb: #{red( $color )} #{green( $color )} #{blue( $color )};
+	@return url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' width='32' height='24' viewBox='0 0 32 24'><polygon points='0,0 32,0 16,24' style='fill: rgb%28#{$rgb}%29'></polygon></svg>");
+}
+
+.form__field,
+input[type="text"],
+input[type="search"],
+input[type="password"],
+input[type="email"],
+select {
+	@include font-body;
+	@include text-std;
+	border: 1px solid $cd-light-gray;
+	padding: #{ $margin-vertical-sm / 4 } $gutter-width;
+	background: white;
+	box-shadow: none;
+	color: $color-input-text;
+	margin-bottom: $margin-vertical-sm;
+	margin-right: $gutter-width / 2;
+	display: block;
+	text-align: left;
+	border-radius: 0;
+	vertical-align: middle;
+	width: 100%;
+	max-width: 100%;
+	appearance: none;
+
+	@include breakpoint( medium ) {
+		font-size: rem( 16 );
+	}
+
+	&:hover {
+		border-color: darken( $border-color, 15% );
+		outline: none;
+	}
+
+	&:focus {
+		border-color: darken( $border-color, 30% );
+
+		[ data-whatintent="mouse" ] & {
+			outline: none;
+		}
+	}
+
+	@include breakpoint( medium up ) {
+
+		width: 50%;
+
+		&.form__field--lg {
+			width: 100%;
+		}
+
+		&.form__field--md {
+			width: 33%;
+		}
+
+		&.form__field--sm {
+			width: 15%;
+		}
+
+	}
+
+	&.form__field--code {
+		font-family: $font-family-code;
+
+		&::placeholder {
+			font-style: normal;
+		}
+	}
+
+	&::placeholder {
+		font-style: italic;
+		color: rgba( $color-input-text, .5 );
+		opacity: 1; // Required for MS Edge
+	}
+
+}
+
+select {
+	background-image: select-arrow( $cd-light-gray );
+	background-origin: content-box;
+	background-position: right -1rem center;
+	background-repeat: no-repeat;
+	background-size: 9px 6px;
+	padding-right: 1.75rem;
+
+	&:hover {
+		background-image: select-arrow( darken( $border-color, 15% ) );
+	}
+
+	&:focus {
+		background-image: select-arrow( darken( $border-color, 30% ) );
+	}
+}
+
+.form__textarea,
+textarea {
+	@extend .form__field;
+	width: 100%;
+	clear: both;
+}
+
+.form__label,
+form label,
+form legend {
+	@include font-heading;
+	@include text-sm;
+	display: block;
+	margin-top: $margin-vertical-sm;
+	margin-bottom: $margin-vertical-sm / 4;
+}
+
+fieldset {
+	border: none;
+	padding: 0;
+	margin: 0;
+}
+
+.form__checkbox-group {
+
+	label {
+		@include font-body;
+		display: inline-block;
+		margin-top: 0;
+	}
+
+	input[type="radio"],
+	input[type="checkbox"] {
+		margin-right: $gutter-width / 4;
+	}
+}
+
+.form__radio-group {
+	@extend .form__checkbox-group;
+	margin-right: $gutter-width;
+	margin-bottom: $margin-vertical-sm / 2;
+	display: inline-block;
+
+}

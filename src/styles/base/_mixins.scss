@@ -1,0 +1,196 @@
+@import "util/breakpoints";
+
+/// Clearfix.
+@mixin clearfix {
+	&:before,
+	&:after {
+		display: table;
+		content: " ";
+	}
+
+	&:after {
+		clear: both;
+	}
+}
+
+@mixin bracket-wrap {
+	&:before,
+	&:after {
+		content: "";
+		background-image: url( "#{ $images-path }/logos/logo-mark-color.svg" );
+		background-size: 0.79em;
+		background-repeat: no-repeat;
+		height: 0.625em;
+		width: 0.4em;
+		display: inline-block;
+	}
+
+	&:before {
+		background-position: left bottom;
+		margin-right: 0.125em;
+	}
+
+	&:after {
+		background-position: right bottom;
+		margin-left: 0.125em;
+	}
+}
+
+/*
+ * Typography
+ */
+@mixin font-heading {
+	font-family: $font-family-heading;
+	font-weight: 700;
+	font-style: italic;
+	// text-transform: uppercase;
+	line-height: $heading-line-height;
+
+	em,
+	i,
+	strong,
+	b {
+		/*
+		font-weight: 700;
+		font-style: italic;
+		color: $color-primary;
+		text-transform: inherit;
+		*/
+		font-weight: inherit;
+		font-style: inherit;
+		color: inherit;
+		text-transform: inherit;
+		white-space: nowrap;
+
+		@include bracket-wrap;
+	}
+}
+
+@mixin font-body {
+	font-family: $font-family-body;
+	font-weight: 200;
+	text-transform: none;
+	letter-spacing: 0;
+
+	strong,
+	b {
+		font-weight: 700;
+	}
+}
+
+@mixin font-accent {
+	font-family: $font-family-accent;
+	font-weight: 700;
+	line-height: 1.03;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	color: $cd-light-gray;
+}
+
+// 54px (desktop)
+@mixin text-xxl {
+	font-size: rem( 26 );
+
+	@include breakpoint( medium ) {
+		font-size:  rem( 54 );
+	}
+}
+
+// 32px (desktop)
+@mixin text-xl {
+	font-size: rem( 20 );
+
+	@include breakpoint( medium ) {
+		font-size: rem( 32 );
+	}
+}
+
+// 24 (desktop)
+@mixin text-lg {
+	font-size: rem( 17 );
+
+	@include breakpoint( medium ) {
+		font-size: rem( 24 );
+	}
+}
+
+@mixin text-std {
+	font-size: rem( 16 );
+	line-height: $base-line-height-sm;
+
+	@include breakpoint( medium ) {
+		font-size: rem( 18 );
+		line-height: $base-line-height;
+	}
+}
+
+@mixin text-sm {
+	font-size: rem( 14 );
+}
+
+@mixin text-xs {
+	font-size: rem( 11 );
+}
+
+@mixin text-smoothing {
+	-webkit-font-smoothing: antialiased; // sass-lint:disable-line no-vendor-prefixes
+	-moz-osx-font-smoothing: grayscale; // sass-lint:disable-line no-vendor-prefixes
+}
+
+@mixin text-link {
+	border-bottom: 1px solid transparent;
+	color: $color-link;
+	text-decoration: none;
+	transition: color .2s ease-in, background .2s ease-in, border-width .2s ease-in;
+
+	&:link,
+	&:visited {
+		color: $color-link;
+		text-decoration: none;
+	}
+
+	&:hover,
+	&:focus {
+		color: $color-link-hover;
+		transition: color .2s ease-out, background .2s ease-out;
+		text-decoration: underline;
+		text-decoration-color: $color-primary-dark;
+	}
+}
+
+@mixin text-link-reverse {
+	@include text-link;
+
+	color: $white;
+	border-color: rgba( $white, 0.8 );
+
+	&:link,
+	&:visited,
+	&:hover,
+	&:focus {
+		color: $white;
+	}
+
+	&:hover,
+	&:focus {
+		border-color: $white;
+	}
+
+}
+
+@mixin text-unlink {
+	color: inherit;
+
+	&:link,
+	&:hover,
+	&:focus,
+	&:visited {
+		text-decoration: none;
+	}
+
+}
+
+@mixin make-primary-gradient {
+	background-image: $gradient-primary;
+	background-color: saturate( darken( $color-primary, 10% ), 10% );
+}

@@ -1,0 +1,41 @@
+// Pattern Library Swatches
+.swatches {
+	display: flex;
+	flex-flow: row wrap;
+}
+
+.swatch {
+	width: 50%;
+	margin-bottom: $margin-vertical-sm;
+
+	@media ( min-width: 600px ) {
+		width: 33.333%;
+	}
+}
+
+.swatch__background {
+
+	height: $margin-vertical-sm;
+	display: block;
+
+	@media ( min-width: 600px ) {
+		display: block;
+		width: auto;
+		height: $margin-vertical-lg;
+	}
+}
+
+.swatch__description {
+	@include text-sm;
+	display: block;
+	text-align: center;
+	margin: #{ $margin-vertical-sm / 4 } 0 0;
+}
+
+.swatch--border {
+	height: auto;
+
+	hr {
+		margin: #{ $margin-vertical-sm / 2 } 0;
+	}
+}

@@ -1,0 +1,42 @@
+.footer {
+
+	@include text-sm;
+	@include make-primary-gradient;
+	color: $color-footer-text;
+
+	.cd-logo--tiny {
+		margin-left: 0;
+		opacity: 0.6;
+		position: relative;
+		top: -1px;
+	}
+
+	&__content {
+		padding: 40px 0;
+	}
+
+	&__credit {
+		@include font-heading;
+	}
+
+	a {
+		@include text-unlink;
+
+		.cd-logo {
+			transition: 0.2s all;
+			background-image: url( "#{ $images-path }/logos/logo-short-white.svg" ) !important; // sass-lint:disable-line no-important
+		}
+
+		&:hover,
+		&:focus {
+			// color: $color-primary;
+			// color: rgba( $color-footer-text, 0.7 );
+			text-decoration: underline;
+			text-decoration-color: $cd-gold;
+
+			.cd-logo {
+				// opacity: 0.7;
+			}
+		}
+	}
+}

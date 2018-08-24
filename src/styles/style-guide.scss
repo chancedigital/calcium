@@ -1,0 +1,76 @@
+/**
+ * This is only used for the documentation pages,
+ * and you do not need to include this file in your project.
+ */
+
+@import "calcium";
+@import "components/swatch";
+
+/**
+ * For previewing a list/grid of logos.
+ * This is used in the pattern library.
+ */
+.pattern-library-logos {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.pattern-library-logos__container {
+
+	width: auto;
+	&:nth-child( n ) { background-color: white; }
+	&:nth-child( 2n ) { background-color: $cd-green; }
+
+	.cd-logo {
+		vertical-align: top;
+	}
+}
+
+.pattern-library-title {
+
+	@extend .text-xxl;
+	@include breakpoint( small only ) {
+		font-size: rem( 46 );
+	}
+
+	@include breakpoint( medium ) {
+		margin-left: -0.5em;
+	}
+}
+
+.pattern-library-loading-indicators {
+	&__container {
+		display: inline-block;
+		padding: #{ $margin-vertical-sm / 2 } $gutter-width;
+
+		&:nth-child( #{ 2 } ) { // Hack around a bug: https://github.com/sasstools/sass-lint/issues/1049
+			color: $color-primary;
+		}
+	}
+
+	.btn {
+		margin: 0;
+	}
+}
+
+.pattern-library-icon-list {
+	background: $cd-xlight-gray;
+	list-style: none;
+	margin: 0;
+	padding: $base-line-height / 4 * 1rem;
+
+	li {
+		display: inline-block;
+		padding: $base-line-height / 4 * 1rem;
+		width: $base-line-height * 1.5 * 1rem;
+		height: $base-line-height * 1.5 * 1rem;
+
+		.icon {
+			display: block;
+		}
+	}
+
+	&--white {
+		background: $cd-green;
+	}
+}

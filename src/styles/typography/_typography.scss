@@ -1,0 +1,187 @@
+[ data-whatintent="mouse" ] *:focus {
+	outline: none;
+}
+
+html {
+	font-size: $base-font-size;
+	text-rendering: optimizeLegibility;
+}
+
+body {
+	@include text-std;
+	@include font-body;
+	color: $color-text-default;
+}
+
+h1,
+.text-xxl {
+	@include text-xxl;
+	@include font-heading;
+	margin: ( $margin-vertical-sm / 1.6 ) 0;
+	color: $color-text-heading;
+
+	@include breakpoint( medium ) {
+		margin: ( $margin-vertical-sm * 1.4 ) 0;
+	}
+}
+
+h2,
+.text-xl {
+	@include text-xl;
+	@include font-heading;
+	margin: ( $margin-vertical-sm * 1.125 ) 0;
+	color: $color-text-heading;
+
+	@include breakpoint( medium ) {
+		margin: ( $margin-vertical-sm * 2 ) 0;
+	}
+}
+
+h3,
+.text-lg {
+	@include text-lg;
+	@include font-heading;
+	line-height: 1.06;
+	margin: $margin-vertical-sm 0;
+	color: $cd-medium-gray;
+}
+
+h4,
+.text-accent {
+	@include font-accent;
+	font-size: rem( 14 );
+}
+
+h4 {
+	margin: ( $margin-vertical-lg / 2 ) 0 ( $margin-vertical-lg / 2.5 );
+
+	@include breakpoint( medium ) {
+		margin: ( $margin-vertical-lg / 1.5 ) 0 ( $margin-vertical-lg / 2.5 );
+	}
+}
+
+h5,
+h6 {
+	@include text-sm;
+	@include font-heading;
+	line-height: 1.2;
+	margin: ( $margin-vertical-sm / 2 ) 0;
+	color: $cd-light-gray;
+}
+
+p,
+ul,
+ol,
+.text-std {
+	margin: rem( 18 ) 0;
+
+	@include breakpoint( medium ) {
+		margin: rem( 22 ) 0;
+	}
+}
+
+small,
+.text-sm {
+	@include text-sm;
+}
+
+ul,
+ol {
+	list-style-position: outside;
+	padding: 0;
+	padding: 0 0 0 ( $gutter-width * 2 );
+
+	ul,
+	ol {
+		margin: 0;
+	}
+}
+
+blockquote {
+	@include text-lg;
+	margin: $margin-vertical-sm 0 ( $margin-vertical-sm * 1.5 );
+	padding-left: $margin-vertical-sm;
+	color: $cd-medium-gray;
+
+	@include breakpoint( medium up ) {
+		margin: $margin-vertical-lg 0 ( $margin-vertical-lg * 1.25 );
+		padding-left: $margin-vertical-lg;
+	}
+
+	b,
+	strong {
+		color: $black;
+	}
+}
+
+hr {
+	border: 1px solid $border-color;
+	border-width: 1px 0 0 0;
+	margin: $margin-vertical-lg 0;
+}
+
+code,
+pre {
+	@include text-xs;
+	font-family: $font-family-code;
+	color: $color-text-pre;
+	background: $color-background-pre;
+	padding: 0px 5px;
+	display: inline-block;
+	border-radius: 4px;
+}
+
+pre {
+	padding: #{ $margin-vertical-sm / 2 } #{ $gutter-width / 2 };
+	display: block;
+	margin: $margin-vertical-sm 0;
+	max-width: 100%;
+	overflow: auto;
+	white-space: pre-wrap;
+}
+
+code {
+	@include text-sm;
+	line-height: inherit;
+}
+
+// Override the background from prism.js.
+:not( pre ) > code[ class*="language-" ],
+pre[ class*="language-" ] {
+	background: $color-background-pre;
+	border-radius: 4px;
+}
+
+::selection {
+	background: lighten( $color-accent, 20% );
+}
+
+a {
+	@include text-link;
+}
+
+// Text for screen readers only.
+.screen-reader-text,
+.sr,
+.visually-hidden {
+	border: 0;
+	clip: rect( 1px, 1px, 1px, 1px );
+	clip-path: inset( 50% );
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+	word-wrap: normal;
+
+	&:focus {
+		clip: auto;
+		clip-path: none;
+		display: block;
+		left: 0.5em;
+		top: 0.5em;
+		width: auto;
+		z-index: 100000; /* Above WP toolbar. */
+	}
+}
