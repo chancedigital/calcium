@@ -6,31 +6,32 @@
   "author": "Chance Digital",
   "license": "GPL-2.0",
   "devDependencies": {
-    "autoprefixer": "^9.1.3",
-    "del": "^3.0.0",
-    "gulp": "^3.9.1",
-    "gulp-concat": "^2.6.1",
-    "gulp-copy": "1.1.0",
-    "gulp-file-include": "^2.0.1",
-    "gulp-imagemin": "^4.1.0",
-    "gulp-newer": "^1.4.0",
-    "gulp-postcss": "^8.0.0",
-    "gulp-rename": "^1.4.0",
-    "gulp-replace": "^1.0.0",
-    "gulp-sass": "^4.0.1",
-    "gulp-sass-lint": "^1.4.0",
-    "gulp-sourcemaps": "^2.6.4",
-    "gulp-uglify": "^3.0.1",
-    "gulp-watch": "^5.0.1",
-    "require-dir": "^1.0.0",
-    "sass-lint": "^1.12.1"
+    "autoprefixer": "9.6.1",
+    "del": "5.0.0",
+    "gulp": "4.0.2",
+    "gulp-concat": "2.6.1",
+    "gulp-copy": "4.0.1",
+    "gulp-file-include": "2.0.1",
+    "gulp-imagemin": "6.0.0",
+    "gulp-newer": "1.4.0",
+    "gulp-postcss": "8.0.0",
+    "gulp-rename": "1.4.0",
+    "gulp-replace": "1.0.0",
+    "gulp-sass": "4.0.2",
+    "gulp-sourcemaps": "2.6.5",
+    "gulp-uglify": "3.0.2",
+    "gulp-watch": "5.0.1",
+    "require-dir": "1.2.0",
+    "stylelint": "10.1.0",
+    "stylelint-scss": "3.9.1"
   },
   "scripts": {
     "gulp": "gulp",
-    "build": "gulp build"
+    "build": "gulp build",
+    "dev": "yarn gulp --watch"
   },
   "dependencies": {
-    "@ibm/plex": "^1.1.3",
-    "what-input": "^5.1.1"
+    "@ibm/plex": "2.0.0",
+    "what-input": "5.2.3"
   }
 }
