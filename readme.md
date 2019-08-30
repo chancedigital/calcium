@@ -1,5 +1,7 @@
 # Calcium
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/chancedigital/calcium.svg)](https://greenkeeper.io/)
+
 The Chance Digital Web Style Guide and Pattern Library. A fork of the similar style guide, Juniper, published by [Human Made](https://github.com/humanmade/hm-pattern-library).
 
 ### Contributing and Development
